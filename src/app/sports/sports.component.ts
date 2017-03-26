@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Sport } from '../sport';
+
+import { SportService } from '../sport.service';
+
 @Component({
   selector: 'sports',
   templateUrl: './sports.component.html',
-  styleUrls: ['./sports.component.css']
+  styleUrls: ['./sports.component.css'],
+  providers: [SportService]
 })
 export class SportsComponent implements OnInit {
-  private sports = ["Weightlifting", "Cycling"];
+  sports: Sport[];
 
-  constructor() { }
+  constructor(private sportService: SportService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getSports();
   }
 
+  getSports(): void {
+    this.sportService.getSports().then(sports => this.sports = sports);
+  }
 }
