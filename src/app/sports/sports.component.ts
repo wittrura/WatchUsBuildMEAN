@@ -11,7 +11,9 @@ import { SportService } from '../sport.service';
   providers: [SportService]
 })
 export class SportsComponent implements OnInit {
+  errorMessage: string;
   sports: Sport[];
+  mode = 'Observable';
 
   constructor(private sportService: SportService) { }
 
@@ -20,6 +22,8 @@ export class SportsComponent implements OnInit {
   }
 
   getSports(): void {
-    this.sportService.getSports().then(sports => this.sports = sports);
+    this.sportService.getSports().subscribe(
+      sports => this.sports = sports,
+      error => this.errorMessage = <any>error);
   }
 }
