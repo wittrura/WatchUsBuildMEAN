@@ -16,7 +16,9 @@ export class SportService {
   constructor(private http: Http) { }
 
   getSports(): Observable<Sport[]> {
-    return this.http.get(this.sportsUrl).map(this.extractData).catch(this.handleError);
+    return this.http.get(this.sportsUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
   }
 
   private extractData(res: Response) {
