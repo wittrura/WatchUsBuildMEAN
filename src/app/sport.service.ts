@@ -7,7 +7,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { Sport } from './sport';
-import { SPORTS } from './mock-sports';
 
 @Injectable()
 export class SportService {

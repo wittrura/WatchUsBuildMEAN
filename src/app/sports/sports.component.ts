@@ -13,7 +13,6 @@ import { SportService } from '../sport.service';
 export class SportsComponent implements OnInit {
   errorMessage: string;
   sports: Sport[];
-  mode = 'Observable';
 
   constructor(private sportService: SportService) { }
 
