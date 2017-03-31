@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SportsComponent } from './sports/sports.component';
+import { SportsMedalsComponent } from './sports-medals/sports-medals.component';
 
 import { RouterModule } from '@angular/router';
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    SportsComponent
+    SportsComponent,
+    SportsMedalsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,10 @@ import { RouterModule } from '@angular/router';
           path: 'sports',
           component: SportsComponent
         }
+        // {
+        //   path: 'sports/:sportName',
+        //   component: SportsMedalsComponent
+        // }
     ])
   ],
   providers: [],

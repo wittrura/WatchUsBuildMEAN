@@ -1,4 +1,7 @@
 <h2>Sports</h2>
 <ul>
-  <li *ngFor="let sport of sports">{{sport.name}}</li>
+  <li *ngFor="let sport of sports" (click)="onSelect(sport)">
+    {{sport.name}}
+  </li>
 </ul>
+<sports-medals [sport]="selectedSport"></sports-medals>

@@ -12,12 +12,17 @@ import { SportService } from '../sport.service';
 })
 export class SportsComponent implements OnInit {
   errorMessage: string;
+  selectedSport: Sport;
   sports: Sport[];
 
   constructor(private sportService: SportService) { }
 
   ngOnInit(): void {
     this.getSports();
+  }
+
+  onSelect(sport: Sport): void {
+    this.selectedSport = sport;
   }
 
   getSports(): void {
