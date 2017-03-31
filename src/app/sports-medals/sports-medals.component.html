@@ -8,8 +8,10 @@
       <th>Country</th>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
+      <tr *ngFor="let medal of sport.goldMedals">
+        <td>{{medal.year}}</td>
+        <td>{{medal.division}}</td>
+        <td>{{medal.country}}</td>
       </tr>
     </tbody>
   </table>

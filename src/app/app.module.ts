@@ -9,8 +9,6 @@ import { SportsMedalsComponent } from './sports-medals/sports-medals.component';
 
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
