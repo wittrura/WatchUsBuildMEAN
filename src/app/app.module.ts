@@ -6,6 +6,10 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SportsComponent } from './sports/sports.component';
 
+import { RouterModule } from '@angular/router';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +18,18 @@ import { SportsComponent } from './sports/sports.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+        {
+          path: '',
+          redirectTo: '/sports',
+          pathMatch: 'full'
+        },
+        {
+          path: 'sports',
+          component: SportsComponent
+        }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
