@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 // import { SportsMedalsComponent } from './sports-medals/sports-medals.component';
 
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { SportsModule } from './sports/sports.module';
 

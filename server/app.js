@@ -18,14 +18,26 @@ app.use(express.static(__dirname + "/../src"));
 app.get("/sports", (req, res) => {
   let sports = mongoUtil.sports();
   sports.find({}).toArray((err, docs) => {
-    // console.log(JSON.stringify(docs));
     res.json({"data": docs});
   });
+});
 
-  // res.json({"data": [
-  //   {name: "Weightlifting"},
-  //   {name: "Cycling"}
-  // ]});
+app.get("/sports/:name", (req, res) => {
+  let sportName = req.params.name;
+  console.log("Sport name: ", sportName);
+  let sport = {
+    "name": "Cycling",
+    "goldMedals": [{
+      "division": "Men's Sprint",
+      "country": "UK",
+      "year": 2012
+    }, {
+      "division": "Women's Sprint",
+      "country": "Australia",
+      "year": 2012
+    }]
+  };
+  res.json({"data": sport});
 });
 
 app.listen(8181, () => console.log("listening on port 8181..."));
