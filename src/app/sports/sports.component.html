@@ -1,8 +1,9 @@
 <h2>Sports</h2>
 <ul>
   <li *ngFor="let sport of sports" (click)="onSelect(sport)">
-    {{sport.name}}
+    <a [routerLink]="sport.name">{{sport.name}}</a>
   </li>
 </ul>
-<sports-medals [sport]="selectedSport"></sports-medals>
+<!-- <sports-medals [sport]="selectedSport"></sports-medals> -->
 <!-- <sports-medals></sports-medals> -->
+<router-outlet></router-outlet>

@@ -1,20 +1,13 @@
 import { Injectable } from '@angular/core';
 
-export class Medal {
-  name: string;
-  goldMedals: [{
-    division: string,
-    country: string,
-    year: number
-  }]
-};
+import { Sport } from './sport';
 
 @Injectable()
 export class SportsMedalsService {
 
   constructor() { }
 
-  getMedals(): Medal {
+  getMedals(): Sport {
     return {
       "name": "Cycling",
       "goldMedals": [{

@@ -24,4 +24,6 @@ export class SportsMedalsComponent implements OnInit {
     this.sport = this.sportsMedalsService.getMedals();
   }
 
+
+
 }

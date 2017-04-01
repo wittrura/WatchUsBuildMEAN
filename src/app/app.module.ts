@@ -4,36 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { SportsComponent } from './sports/sports.component';
-import { SportsMedalsComponent } from './sports-medals/sports-medals.component';
+// import { SportsComponent } from './sports/sports.component';
+// import { SportsMedalsComponent } from './sports-medals/sports-medals.component';
 
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app/app-routing.module';
+
+import { SportsModule } from './sports/sports.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SportsComponent,
-    SportsMedalsComponent
+    AppComponent
+    // SportsComponent,
+    // SportsMedalsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-        {
-          path: '',
-          redirectTo: '/sports',
-          pathMatch: 'full'
-        },
-        {
-          path: 'sports',
-          component: SportsComponent
-        }
-        // {
-        //   path: 'sports/:sportName',
-        //   component: SportsMedalsComponent
-        // }
-    ])
+    SportsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
