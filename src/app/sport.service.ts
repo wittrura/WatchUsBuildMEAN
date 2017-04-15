@@ -21,19 +21,13 @@ export class SportService {
                     .catch(this.handleError);
   }
 
-  getMedals(): Sport {
-    return {
-      "name": "Cycling",
-      "goldMedals": [{
-        "division": "Men's Sprint",
-        "country": "UK",
-        "year": 2012
-      }, {
-        "division": "Women's Sprint",
-        "country": "Australia",
-        "year": 2012
-      }]
-    };
+  getMedals(): Observable<Sport> {
+    const url = 'http://localhost:8181/sports/Weightlifting';
+
+    return this.http.get(url)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+
   }
 
   private extractData(res: Response) {
