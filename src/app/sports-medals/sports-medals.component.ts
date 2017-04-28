@@ -31,17 +31,20 @@ export class SportsMedalsComponent implements OnInit {
         // .switchMap((params: Params) => this.getMedals(params['name']));
         // .switchMap((params: Params) => this.sportName = (params['name']));
     // console.log(this.sportName);
-    console.log(this.route.params['name']);
-    console.log(this.route.params);
-    this.getMedals();
+    this.route.params
+      .switchMap((params: Params) => this.sportService.getMedal(params['name']))
+      .subscribe((sport: Sport) => this.sport = sport);
+
+    // console.log(this.route.params['name']);
+    // console.log(this.route.params);
+    // this.getMedals();
   }
 
-  getMedals(): void {
-    this.sportService.getMedals().subscribe(
-      sport => this.sport = sport,
-      error => this.errorMessage = <any>error);
-    // this.sport = this.sportService.getMedals();
-  }
-
+  // getMedals(): void {
+  //   this.sportService.getMedals().subscribe(
+  //     sport => this.sport = sport,
+  //     error => this.errorMessage = <any>error);
+  //   // this.sport = this.sportService.getMedals();
+  // }
 
 }

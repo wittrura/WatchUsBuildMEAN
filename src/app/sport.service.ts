@@ -21,8 +21,8 @@ export class SportService {
                     .catch(this.handleError);
   }
 
-  getMedals(): Observable<Sport> {
-    const url = 'http://localhost:8181/sports/Weightlifting';
+  getMedal(sportName: string): Observable<Sport> {
+    const url = 'http://localhost:8181/sports/' + sportName;
 
     return this.http.get(url)
                     .map(this.extractData)

@@ -4,6 +4,8 @@ import { Sport } from '../sport';
 
 import { SportService } from '../sport.service';
 
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'sports',
   templateUrl: './sports.component.html',
@@ -12,17 +14,25 @@ import { SportService } from '../sport.service';
 })
 export class SportsComponent implements OnInit {
   errorMessage: string;
-  selectedSport: Sport;
+  // selectedSport: Sport;
+  selectedSportName: string;
   sports: Sport[];
 
-  constructor(private sportService: SportService) { }
+  constructor(
+    private sportService: SportService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.getSports();
   }
 
   onSelect(sport: Sport): void {
-    this.selectedSport = sport;
+    this.selectedSportName = sport.name;
+
+    // navigate with relative link
+    this.router.navigate([sport.name], { relativeTo: this.route });
   }
 
   getSports(): void {

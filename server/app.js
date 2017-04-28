@@ -26,7 +26,8 @@ app.get("/sports/:name", (req, res) => {
   let sportName = req.params.name;
   console.log("Sport name: ", sportName);
   let sport = {
-    "name": "Cycling",
+    // "name": "Cycling",
+    "name": sportName,
     "goldMedals": [{
       "division": "Men's Sprint",
       "country": "UK",
