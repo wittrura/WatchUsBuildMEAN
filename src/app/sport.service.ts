@@ -21,13 +21,12 @@ export class SportService {
                     .catch(this.handleError);
   }
 
-  getMedal(sportName: string): Observable<Sport> {
-    const url = 'http://localhost:8181/sports/' + sportName;
+  getMedals(sportName: string): Observable<Sport> {
+    const url = this.sportsUrl + '/' + sportName;
 
     return this.http.get(url)
                     .map(this.extractData)
                     .catch(this.handleError);
-
   }
 
   private extractData(res: Response) {

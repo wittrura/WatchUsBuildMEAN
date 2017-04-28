@@ -23,6 +23,7 @@ app.get("/sports", (req, res) => {
 });
 
 app.get("/sports/:name", (req, res) => {
+  let sports = mongoUtil.sports();
   let sportName = req.params.name;
   console.log("Sport name: ", sportName);
   let sport = {
@@ -38,6 +39,10 @@ app.get("/sports/:name", (req, res) => {
       "year": 2012
     }]
   };
+  // sports.find({"name": sportName}, {"_id": 0, "name": 1, "goldMedals": 1}).toArray((err, docs) => {
+  //   console.log(docs);
+  //   res.json({"data": docs});
+  // });
   res.json({"data": sport});
 });
 
